@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			background: -webkit-linear-gradient(top, rgb(235, 203, 203) 0%, rgb(55, 148, 192) 120%)
+		}
+		#text{
+			position: absolute;
+			top: 80%;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: transparent;
+			border:0;
+			border-bottom: 2px solid #069;
+			outline: none;
+			text-align: center;
+			width: 30%;
+			font-size: 26px;
+		}
+	</style>
+</head>
+<body>
+	<div id="view" title="Designed & Developed by Xue Wang"></div>
+	<input type="text" id="text" maxlength="10" />
+</body>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var div = document.querySelector('#view');
+		var view = new Text(div);
+		view.init();
+		view.start();
+		document.querySelector("#text").onkeyup = function(e){
+			switch(e.keyCode){
+				case 13:
+					view.update(this.value);
+					view.start();
+					this.value = "";
+					break;
+				default:return;
+			}
+		}
+	};
+</script>
+</html>
